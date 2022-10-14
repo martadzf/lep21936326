@@ -21,3 +21,10 @@ locale()
 
 #Cambaimos config y limpiamos
 df1 <- df_raw %>% janitor::clean_names() %>% type_convert(locale = locale(decimal_mark = ","))
+
+# CREAR NUEVA COLUMNA ------------------------------------------------------------
+df_turist <- df1 %>% mutate(piso_turistico = floor %in% c("00"))
+
+
+
+
