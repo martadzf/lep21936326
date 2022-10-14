@@ -24,7 +24,8 @@ df1 <- df_raw %>% janitor::clean_names() %>% type_convert(locale = locale(decima
 
 # CREAR NUEVA COLUMNA ------------------------------------------------------------
 df_turist <- df1 %>% mutate(piso_turistico = floor %in% c("00"))
-
+#AREA PROMEDIO 
+df_turist %>% select(area, autonomous_region) %>% drop_na() %>% group_by(autonomous_region) %>% summarize(mean(area)) %>% view()
 
 
 
